@@ -100,8 +100,8 @@ function Login(props) {
                         clientId={clientId}
                         buttonText='Sign in with google'
                         onSuccess={googleAuthOnSuccess}
-                        onFailure={() => {
-
+                        onFailure={(err) => {
+                            console.log(err)
                         }}
                         cookiePolicy='single_host_origin'
 
