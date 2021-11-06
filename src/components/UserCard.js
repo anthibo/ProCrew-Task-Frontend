@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Icon, Label, Image, Button, Grid } from 'semantic-ui-react'
+import { Card, Icon, Image, Button, Grid } from 'semantic-ui-react'
 
 import DeleteButton from './DeleteButton'
 //TODO:fix date format

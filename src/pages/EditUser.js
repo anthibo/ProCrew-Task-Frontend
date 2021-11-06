@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { getUser, editUser } from '../utils/API'
 import { useForm } from '../utils/hooks'
@@ -16,7 +16,7 @@ export default function EditUser(props) {
             console.log(err)
         },
         )
-    }, [])
+    }, [id])
     console.log(userInfo)
     const { onSubmit } = useForm(editUserCallback, userInfo)
     const onChange = (event) => {

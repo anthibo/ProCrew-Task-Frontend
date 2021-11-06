@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Button, Container, Form, Select } from 'semantic-ui-react'
+import React, { useState, useContext } from 'react'
+import { Button, Container, Form } from 'semantic-ui-react'
 import GoogleLogin from 'react-google-login'
 
 import { useForm } from '../utils/hooks'

@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react'
-import axios from 'axios'
-import { Container, Dimmer, Grid, GridColumn, Loader, Transition } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react'
+import { Dimmer, Grid, Loader, Transition } from 'semantic-ui-react'
 
 import { getUsers } from '../utils/API'
 import UserCard from '../components/UserCard'

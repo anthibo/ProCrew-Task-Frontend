@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useForm } from '../utils/hooks'
 import { createUser } from '../utils/API'
