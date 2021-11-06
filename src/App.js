@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css'
+import { Container } from 'semantic-ui-react'
+
 import './App.css';
+
+import { AuthProvider } from './context/auth';
+import AuthRoute from './utils/AuthRoute';
+import MenuBar from './components/MenuBar';
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Dashboard from './pages/Dashboard'
+import EditUser from './pages/EditUser'
+import ForgotPassowrd from './pages/ForgotPassword';
+
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Container >
+          <MenuBar />
+          <AuthRoute exact path='/' component={Dashboard} />
+          <AuthRoute exact path='/edit/:id' component={EditUser} />
+          <AuthRoute exact path='/add' component={Register} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/forgotPassword' component={ForgotPassowrd} />
+        </Container>
+      </Router >
+    </AuthProvider>
   );
 }
 
