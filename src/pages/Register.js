@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react'
-import { Button, Container, Form } from 'semantic-ui-react'
+import React, { useState, useContext, useRef } from 'react'
+import { Button, Container, Form, Message } from 'semantic-ui-react'
 import GoogleLogin from 'react-google-login'
 
 import { useForm } from '../utils/hooks'
@@ -26,6 +26,9 @@ function Register(props) {
     const [reset_question, setReset_question] = useState('')
     const [errors, setErrors] = useState({})
     const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const successRef = useRef(null);
+
 
 
     console.log(reset_question)
@@ -39,24 +42,23 @@ function Register(props) {
     ]
     function registerUser() {
         setLoading(true)
+        setErrors({})
         values.reset_question = reset_question
         values.name = userData.name
         values.email = userData.email
-        console.log(values)
         createUser(values).then(res => {
             setLoading(false)
-            console.log(res)
+            setSuccess(true)
             props.history.push('/')
         }).catch(err => {
             setLoading(false)
+            setSuccess(false)
             console.log(err)
             if (err.response) {
                 console.log(err.response)
                 if ((err.response.data.error.err.messages) !== undefined) {
                     let errorsData = {}
                     const resErrors = err.response.data.error.err.messages.errors
-                    console.log(resErrors)
-                    console.log(resErrors)
                     resErrors.forEach(element => {
                         errorsData[element.field] = `${element.field} ${element.message}`
                     });
@@ -79,9 +81,14 @@ function Register(props) {
         )
     }
 
-
     return (
         <div className='form-container'>
+            {success && (
+                <Message positive style={{ marginTop: 10 }} ref={successRef}>
+                    <Message.Header>User registered successfully 🎉🎉🎉</Message.Header>
+                </Message>
+            )}
+
             <Form onSubmit={onSubmit} loading={loading}>
                 {user ? (<h1>Add User</h1>) : (<h1>Register</h1>)}
 

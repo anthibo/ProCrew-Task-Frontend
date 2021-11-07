@@ -44,6 +44,10 @@ function Login(props) {
         )
     }
 
+    if (context.user) {
+        props.history.push('/')
+    }
+
     const googleAuthOnSuccess = (res) => {
         setLoading(true)
         const email = res.profileObj.email

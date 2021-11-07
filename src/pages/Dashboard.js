@@ -39,7 +39,7 @@ function Dashboard() {
                 </Dimmer>
             )}
 
-            <Grid doubling columns={3}>
+            <Grid stackable columns={3}>
                 <Grid.Row >
                     <Transition.Group>
                         {users && users.map(user => (

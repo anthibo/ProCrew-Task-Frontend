@@ -20,6 +20,7 @@ getUsers('').then(
 ).catch(err => {
     console.log(err.response)
 })
+console.log(initialState)
 
 
 

@@ -12,7 +12,7 @@ export default function DeleteButton(props) {
             res => {
                 setConfirmOpen(false)
                 console.log(res)
-                props.history.push('/')
+                window.location.reload(false);
             }
         ).catch(err => {
             console.log(err)
