@@ -12,7 +12,7 @@ export default function DeleteButton(props) {
             res => {
                 setConfirmOpen(false)
                 console.log(res)
-                window.location.reload(false);
+                window.location.reload(true);
             }
         ).catch(err => {
             console.log(err)
